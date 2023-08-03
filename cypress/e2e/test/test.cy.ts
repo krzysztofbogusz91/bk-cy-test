@@ -7,5 +7,4 @@ describe('Test Suite', () => {
     cy.visit('http://localhost:4200');
     cy.get('[data-cy="title"]').should('contain', 'cypress-cicd');
   });
-
 });
