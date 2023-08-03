@@ -1,3 +1,6 @@
+agents:
+  queue: "aws"
+
 env:
   TERM: "xterm"
 
@@ -10,9 +13,6 @@ steps:
       echo "--- NPM version"
       npm --version
 
-      echo "--- RUN all"
-      npm install npm-run-all
-      
       echo "--- Install NPM dependencies"
       npm install
     
