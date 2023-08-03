@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "./node_modules/.bin/ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "cy": "cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "./node_modules/.bin/cypress run",
     "test": "ng test"
   },
   "private": true,
