@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "cy": "cypress open",
-    "cy:ci": "npm run start & npm run cy:run",
+    "cy:ci": "npm run start",
     "cy:run": "./node_modules/.bin/cypress run",
     "test": "ng test"
   },
