@@ -10,9 +10,12 @@ steps:
       echo "--- NPM version"
       npm --version
 
+      echo "--- RUN all"
+      npm install npm-run-all
+      
       echo "--- Install NPM dependencies"
       npm install
-      npm install npm-run-all --save-dev
+    
 
       # if necessary, reinstall "correct" version of Cypress
       # a common situation if testing preview binary build
