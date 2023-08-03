@@ -8,4 +8,5 @@ describe('Test Suite', () => {
 
     cy.get('[data-cy="title"]').should('contain', 'cypress-cicd');
   });
+  
 });
