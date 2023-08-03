@@ -5,8 +5,7 @@ describe('Test Suite', () => {
 
   it('Visits localhost:4200 and checks title', () => {
     cy.visit('http://localhost:4200');
-
     cy.get('[data-cy="title"]').should('contain', 'cypress-cicd');
   });
-  
+
 });
