@@ -16,7 +16,6 @@ steps:
 
       echo "--- Install NPM dependencies"
       npm install
-
   - label: ":jasmine: Unit tests run"
     depends_on: 'install'
     command: |
