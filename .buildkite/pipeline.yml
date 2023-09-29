@@ -22,8 +22,9 @@ steps:
       # "$(npm bin)/cypress" install --force
 
       echo "+++ Run Cypress tests"
-      echo pwd
+      
       npm run cy:ci
+      pwd
       buildkite-agent artifact upload "cypress/**/*.jpg;*/**/*.jpeg;*/**/*.png"
     artifact_paths:
       - "/cypress/screenshots/**/*"
