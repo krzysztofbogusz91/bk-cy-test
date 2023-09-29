@@ -22,13 +22,11 @@ steps:
       echo "Running unit tests"
       npm run test:ci
     depends_on: 'build'
-    soft_fail:
-      - exit_status: "*"
   
   - wait: ~
     continue_on_failure: true
   - label: ":cypress: Cypress"
-    depends_on: 'install'
+    depends_on: 'build'
     command: |
       # if necessary, reinstall "correct" version of Cypress
       # a common situation if testing preview binary build

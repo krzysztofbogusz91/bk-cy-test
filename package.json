@@ -10,7 +10,7 @@
     "cy:ci": "run-p --race start cy:run",
     "run-p": "npm run run-p",
     "cy:run": "./node_modules/.bin/cypress run",
-    "test": "ng test --watch=true --browsers=ChromeHeadless",
+    "test": "node --max_old_space_size=8048 ./node_modules/.bin/ng test --watch=true --browsers=ChromeHeadless",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless"
   },
   "private": true,
