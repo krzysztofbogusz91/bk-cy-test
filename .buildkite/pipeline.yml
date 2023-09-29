@@ -16,13 +16,12 @@ steps:
       echo "--- Install NPM dependencies"
       npm install
     key: "build"
-    
+
   - label: ":jasmine: Unit tests run"
     command: |
       echo "Running unit tests"
       npm run test:ci
     depends_on: 'build'
-    - wait: ~
     continue_on_failure: true
 
   - label: ":cypress: Cypress"
