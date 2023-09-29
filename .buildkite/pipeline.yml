@@ -15,10 +15,16 @@ steps:
 
       echo "--- Install NPM dependencies"
       npm install
+
+  - wait  
+
   - label: ":jasmine: Unit tests run"
     command: |
       echo "Running unit tests"
       npm run test:ci
+
+  - wait
+   
   - label: ":cypress: Cypress"
     command: |
       # if necessary, reinstall "correct" version of Cypress
