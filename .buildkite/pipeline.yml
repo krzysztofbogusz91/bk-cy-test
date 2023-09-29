@@ -27,4 +27,4 @@ steps:
       pwd
       buildkite-agent artifact upload "cypress/**/*.jpg;*/**/*.jpeg;*/**/*.png"
     artifact_paths:
-      - "/cypress/screenshots/**/*"
+      - "cypress/screenshots/**/*"
