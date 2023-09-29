@@ -10,7 +10,8 @@
     "cy:ci": "run-p --race start cy:run",
     "run-p": "npm run run-p",
     "cy:run": "./node_modules/.bin/cypress run",
-    "test": "ng test"
+    "test": "ng test --watch=true --browsers=ChromeHeadless",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {

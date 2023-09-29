@@ -5,8 +5,8 @@ env:
   TERM: "xterm"
 
 steps:
-  - label: ":cypress: Cypress"
-    command: |
+  - label: ":angular: Build the application"
+    command: | 
       echo "--- Node version"
       node --version
 
@@ -15,16 +15,21 @@ steps:
 
       echo "--- Install NPM dependencies"
       npm install
-    
-
+  - label: ":jasmine: Unit tests run"
+    command: |
+      echo "Running unit tests"
+      npm run test:ci
+  - label: ":cypress: Cypress"
+    command: |
       # if necessary, reinstall "correct" version of Cypress
       # a common situation if testing preview binary build
       # "$(npm bin)/cypress" install --force
 
       echo "+++ Run Cypress tests"
-      
+
       npm run cy:ci
-      pwd
-      buildkite-agent artifact upload "cypress/**/*.jpg;*/**/*.jpeg;*/**/*.png"
+
+      buildkite-agent artifact upload "/var/lib/buildkite-agent/builds/AWSLXINTBTP01-weforum-local-2/world-economic-forum/kb-tes/cypress/screenshots//**/*.jpg;*/**/*.jpeg;*/**/*.png"
+    
     artifact_paths:
-      - "cypress/screenshots/**/*"
+      - "/var/lib/buildkite-agent/builds/AWSLXINTBTP01-weforum-local-2/world-economic-forum/kb-tes/cypress/screenshots/"
