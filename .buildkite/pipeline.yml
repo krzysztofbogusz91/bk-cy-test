@@ -28,7 +28,7 @@ steps:
   - label: ":cypress: Cypress"
     depends_on: 'build'
     command: |
-      # if necessary, reinstall "correct" version of Cypress
+      # if necessary, reinstall "correct" version of Cypres
       # a common situation if testing preview binary build
       # "$(npm bin)/cypress" install --force
 
