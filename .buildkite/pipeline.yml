@@ -6,7 +6,7 @@ env:
 
 steps:
   - label: ":angular: Build the application"
-    key: "install"
+    key: "build"
     command: | 
       echo "--- Node version"
       node --version
@@ -17,7 +17,7 @@ steps:
       echo "--- Install NPM dependencies"
       npm install
   - label: ":jasmine: Unit tests run"
-    depends_on: 'install'
+    depends_on: 'build'
     command: |
       echo "Running unit tests"
       npm run test:ci
