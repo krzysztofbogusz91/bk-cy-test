@@ -6,6 +6,7 @@ env:
 
 steps:
   - label: ":angular: Build the application"
+    key: "install"
     command: | 
       echo "--- Node version"
       node --version
@@ -19,13 +20,15 @@ steps:
   - wait  
 
   - label: ":jasmine: Unit tests run"
+    depends_on: 'install'
     command: |
       echo "Running unit tests"
       npm run test:ci
+    - wait: ~
+    continue_on_failure: true
 
-  - wait
-   
   - label: ":cypress: Cypress"
+    depends_on: 'install'
     command: |
       # if necessary, reinstall "correct" version of Cypress
       # a common situation if testing preview binary build
