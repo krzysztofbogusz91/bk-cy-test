@@ -12,11 +12,13 @@ steps:
 
       echo "--- Install NPM dependencies"
       npm install
+      buildkite-agent artifact upload "node_modules/**/*"
     key: "build"
     
   - label: ":jasmine: Unit tests run"
     command: |
       echo "Running unit tests"
+      buildkite-agent artifact download "node_modules/**/*" .
       npm run test:ci
     depends_on: 'build'
   
