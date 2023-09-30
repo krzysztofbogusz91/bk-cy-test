@@ -1,6 +1,3 @@
-agents:
-  queue: "aws"
-
 env:
   TERM: "xterm"
 
