@@ -12,19 +12,27 @@ steps:
 
       echo "--- Install NPM dependencies"
       npm install
-      echo "--- Caching node_modules"
-      buildkite-agent cache store node-modules node_modules
+
     key: "build"
+    plugins: 
+      - cache#v0.6.0:
+          manifest: package-lock.json
+          path: node_modules
+          restore: file
+          save: file 
     
   - label: ":jasmine: Unit tests run"
     command: |
-      echo "Restoring node_modules from cache"
-      buildkite-agent cache restore node-modules
-
       echo "Running unit tests"
 
       npm run test:ci
     depends_on: 'build'
+    plugins: 
+      - cache#v0.6.0:
+          manifest: package-lock.json
+          path: node_modules
+          restore: file
+          save: file 
   
   - wait: ~
     continue_on_failure: true
